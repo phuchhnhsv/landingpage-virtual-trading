@@ -1,0 +1,2910 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phá đảo chứng trường ảo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @font-face {
+        src: url("fonts/SVN-Zelda-Sans.otf");
+        font-family: SVN;
+      }
+      * {
+        box-sizing: inherit;
+      }
+
+      html {
+        font-size: 62.5%;
+        line-height: 1.6rem;
+        font-family: "Montserrat", sans-serif;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      /* Responsive */
+      .grid__row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -5px;
+        margin-right: -5px;
+      }
+
+      /* TEST */
+      .grid__column-2 {
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 16.6667%;
+      }
+
+      .grid__column-2-4 {
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 20%;
+      }
+
+      .grid__column-10 {
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 83.3334%;
+      }
+      .grid {
+        width: 100%;
+        display: block;
+        padding: 0;
+      }
+
+      .grid.wide {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -4px;
+        margin-right: -4px;
+      }
+
+      .row.no-gutters {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .col {
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+
+      .row.no-gutters .col {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .c-0 {
+        display: none;
+      }
+
+      .c-1 {
+        flex: 0 0 8.33333%;
+        max-width: 8.33333%;
+      }
+
+      .c-2 {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+      }
+
+      .c-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+      }
+
+      .c-4 {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+      }
+
+      .c-5 {
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%;
+      }
+
+      .c-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+
+      .c-7 {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+      }
+
+      .c-8 {
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%;
+      }
+
+      .c-9 {
+        flex: 0 0 75%;
+        max-width: 75%;
+      }
+
+      .c-10 {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+      }
+
+      .c-11 {
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%;
+      }
+
+      .c-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
+      .c-o-1 {
+        margin-left: 8.33333%;
+      }
+
+      .c-o-2 {
+        margin-left: 16.66667%;
+      }
+
+      .c-o-3 {
+        margin-left: 25%;
+      }
+
+      .c-o-4 {
+        margin-left: 33.33333%;
+      }
+
+      .c-o-5 {
+        margin-left: 41.66667%;
+      }
+
+      .c-o-6 {
+        margin-left: 50%;
+      }
+
+      .c-o-7 {
+        margin-left: 58.33333%;
+      }
+
+      .c-o-8 {
+        margin-left: 66.66667%;
+      }
+
+      .c-o-9 {
+        margin-left: 75%;
+      }
+
+      .c-o-10 {
+        margin-left: 83.33333%;
+      }
+
+      .c-o-11 {
+        margin-left: 91.66667%;
+      }
+
+      /* >= Tablet */
+      @media (min-width: 740px) {
+        .row {
+          margin-left: -8px;
+          margin-right: -8px;
+        }
+        .col {
+          padding-left: 8px;
+          padding-right: 8px;
+        }
+        .m-0 {
+          display: none;
+        }
+        .m-1,
+        .m-2,
+        .m-3,
+        .m-4,
+        .m-5,
+        .m-6,
+        .m-7,
+        .m-8,
+        .m-9,
+        .m-10,
+        .m-11,
+        .m-12 {
+          display: block;
+        }
+        .m-1 {
+          flex: 0 0 8.33333%;
+          max-width: 8.33333%;
+        }
+        .m-2 {
+          flex: 0 0 16.66667%;
+          max-width: 16.66667%;
+        }
+        .m-3 {
+          flex: 0 0 25%;
+          max-width: 25%;
+        }
+        .m-4 {
+          flex: 0 0 33.33333%;
+          max-width: 33.33333%;
+        }
+        .m-5 {
+          flex: 0 0 41.66667%;
+          max-width: 41.66667%;
+        }
+        .m-6 {
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+        .m-7 {
+          flex: 0 0 58.33333%;
+          max-width: 58.33333%;
+        }
+        .m-8 {
+          flex: 0 0 66.66667%;
+          max-width: 66.66667%;
+        }
+        .m-9 {
+          flex: 0 0 75%;
+          max-width: 75%;
+        }
+        .m-10 {
+          flex: 0 0 83.33333%;
+          max-width: 83.33333%;
+        }
+        .m-11 {
+          flex: 0 0 91.66667%;
+          max-width: 91.66667%;
+        }
+        .m-12 {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        .m-o-1 {
+          margin-left: 8.33333%;
+        }
+
+        .m-o-2 {
+          margin-left: 16.66667%;
+        }
+
+        .m-o-3 {
+          margin-left: 25%;
+        }
+
+        .m-o-4 {
+          margin-left: 33.33333%;
+        }
+
+        .m-o-5 {
+          margin-left: 41.66667%;
+        }
+
+        .m-o-6 {
+          margin-left: 50%;
+        }
+
+        .m-o-7 {
+          margin-left: 58.33333%;
+        }
+
+        .m-o-8 {
+          margin-left: 66.66667%;
+        }
+
+        .m-o-9 {
+          margin-left: 75%;
+        }
+
+        .m-o-10 {
+          margin-left: 83.33333%;
+        }
+
+        .m-o-11 {
+          margin-left: 91.66667%;
+        }
+      }
+
+      /* PC medium resolution > */
+      @media (min-width: 1113px) {
+        .row {
+          margin-left: -12px;
+          margin-right: -12px;
+        }
+        .row.sm-gutter {
+          margin-left: -5px;
+          margin-right: -5px;
+        }
+        .col {
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+        .row.sm-gutter .col {
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+        .l-0 {
+          display: none;
+        }
+        .l-1,
+        .l-2,
+        .l-2-4,
+        .l-3,
+        .l-4,
+        .l-5,
+        .l-6,
+        .l-7,
+        .l-8,
+        .l-9,
+        .l-10,
+        .l-11,
+        .l-12 {
+          display: block;
+        }
+        .l-1 {
+          flex: 0 0 8.33333%;
+          max-width: 8.33333%;
+        }
+        .l-2 {
+          flex: 0 0 16.66667%;
+          max-width: 16.66667%;
+        }
+        .l-2-4 {
+          flex: 0 0 20%;
+          max-width: 20%;
+        }
+        .l-3 {
+          flex: 0 0 25%;
+          max-width: 25%;
+        }
+        .l-4 {
+          flex: 0 0 33.33333%;
+          max-width: 33.33333%;
+        }
+        .l-5 {
+          flex: 0 0 41.66667%;
+          max-width: 41.66667%;
+        }
+        .l-6 {
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+        .l-7 {
+          flex: 0 0 58.33333%;
+          max-width: 58.33333%;
+        }
+        .l-8 {
+          flex: 0 0 66.66667%;
+          max-width: 66.66667%;
+        }
+        .l-9 {
+          flex: 0 0 75%;
+          max-width: 75%;
+        }
+        .l-10 {
+          flex: 0 0 83.33333%;
+          max-width: 83.33333%;
+        }
+        .l-11 {
+          flex: 0 0 91.66667%;
+          max-width: 91.66667%;
+        }
+        .l-12 {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        .l-o-1 {
+          margin-left: 8.33333%;
+        }
+
+        .l-o-2 {
+          margin-left: 16.66667%;
+        }
+
+        .l-o-3 {
+          margin-left: 25%;
+        }
+
+        .l-o-4 {
+          margin-left: 33.33333%;
+        }
+
+        .l-o-5 {
+          margin-left: 41.66667%;
+        }
+
+        .l-o-6 {
+          margin-left: 50%;
+        }
+
+        .l-o-7 {
+          margin-left: 58.33333%;
+        }
+
+        .l-o-8 {
+          margin-left: 66.66667%;
+        }
+
+        .l-o-9 {
+          margin-left: 75%;
+        }
+
+        .l-o-10 {
+          margin-left: 83.33333%;
+        }
+
+        .l-o-11 {
+          margin-left: 91.66667%;
+        }
+      }
+
+      /* Tablet - PC low resolution */
+      @media (min-width: 740px) and (max-width: 1023px) {
+        .wide {
+          width: 644px;
+        }
+      }
+
+      /* > PC low resolution */
+      @media (min-width: 1024px) and (max-width: 1239px) {
+        .wide {
+          width: 984px;
+        }
+        .wide .row {
+          margin-left: -12px;
+          margin-right: -12px;
+        }
+        .wide .row.sm-gutter {
+          margin-left: -5px;
+          margin-right: -5px;
+        }
+        .wide .col {
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+        .wide .row.sm-gutter .col {
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+        .wide .l-0 {
+          display: none;
+        }
+        .wide .l-1,
+        .wide .l-2,
+        .wide .l-2-4,
+        .wide .l-3,
+        .wide .l-4,
+        .wide .l-5,
+        .wide .l-6,
+        .wide .l-7,
+        .wide .l-8,
+        .wide .l-9,
+        .wide .l-10,
+        .wide .l-11,
+        .wide .l-12 {
+          display: block;
+        }
+        .wide .l-1 {
+          flex: 0 0 8.33333%;
+          max-width: 8.33333%;
+        }
+        .wide .l-2 {
+          flex: 0 0 16.66667%;
+          max-width: 16.66667%;
+        }
+        .wide .l-2-4 {
+          flex: 0 0 20%;
+          max-width: 20%;
+        }
+        .wide .l-3 {
+          flex: 0 0 25%;
+          max-width: 25%;
+        }
+        .wide .l-4 {
+          flex: 0 0 33.33333%;
+          max-width: 33.33333%;
+        }
+        .wide .l-5 {
+          flex: 0 0 41.66667%;
+          max-width: 41.66667%;
+        }
+        .wide .l-6 {
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+        .wide .l-7 {
+          flex: 0 0 58.33333%;
+          max-width: 58.33333%;
+        }
+        .wide .l-8 {
+          flex: 0 0 66.66667%;
+          max-width: 66.66667%;
+        }
+        .wide .l-9 {
+          flex: 0 0 75%;
+          max-width: 75%;
+        }
+        .wide .l-10 {
+          flex: 0 0 83.33333%;
+          max-width: 83.33333%;
+        }
+        .wide .l-11 {
+          flex: 0 0 91.66667%;
+          max-width: 91.66667%;
+        }
+        .wide .l-12 {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        .wide .l-o-1 {
+          margin-left: 8.33333%;
+        }
+
+        .wide .l-o-2 {
+          margin-left: 16.66667%;
+        }
+
+        .wide .l-o-3 {
+          margin-left: 25%;
+        }
+
+        .wide .l-o-4 {
+          margin-left: 33.33333%;
+        }
+
+        .wide .l-o-5 {
+          margin-left: 41.66667%;
+        }
+
+        .wide .l-o-6 {
+          margin-left: 50%;
+        }
+
+        .wide .l-o-7 {
+          margin-left: 58.33333%;
+        }
+
+        .wide .l-o-8 {
+          margin-left: 66.66667%;
+        }
+
+        .wide .l-o-9 {
+          margin-left: 75%;
+        }
+
+        .wide .l-o-10 {
+          margin-left: 83.33333%;
+        }
+
+        .wide .l-o-11 {
+          margin-left: 91.66667%;
+        }
+      }
+
+      .app {
+        overflow: hidden;
+        background: linear-gradient(0, #002549, #004878);
+      }
+
+      .select-wrapper * {
+        transition: none !important;
+        transform: none !important;
+      }
+
+      .header {
+      }
+
+      .tabs {
+        display: flex;
+        justify-content: center;
+      }
+
+      .step_install {
+        font-size: 1.4rem;
+      }
+
+      .tablinks {
+        /* background-color: #f1f1f1; */
+        background: linear-gradient(90deg, #427fbd, #1e2cad);
+        border: none;
+        border-radius: 30px;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 86px;
+        transition: background-color 0.3s;
+        font-size: 2rem;
+        font-weight: 800;
+        color: white;
+        margin-right: 48px;
+        white-space: nowrap;
+      }
+
+      .nh__temp {
+        display: flex;
+        position: relative;
+      }
+
+      .consider {
+        font-size: 1.4rem;
+        color: white;
+      }
+      .nh__temp1 {
+        margin: auto;
+      }
+
+      .nh__mood-content {
+        position: absolute;
+        bottom: 0;
+        left: 30px;
+      }
+
+      .tablinks:last-child {
+        margin-right: 0;
+      }
+
+      .market-img123 {
+        width: 33px;
+        margin-right: 8px;
+        position: relative;
+        top: 2px;
+      }
+
+      .three_phone {
+        width: 402px;
+        margin-bottom: 14px;
+        /* margin: auto; */
+      }
+
+      .tablinks:hover {
+        background: linear-gradient(90deg, #9fcfff, #3c4cdf);
+      }
+
+      .tabcontent {
+        display: none;
+        /* background-color: white; */
+        margin-top: 24px;
+        border-top: none;
+        border-radius: 20px;
+        border: 4px solid #004b87;
+        padding: 10px 20px;
+        /* border-image: linear-gradient(
+            90deg,
+            #004b87,
+            #0072da,
+            #56b7e6,
+            #4fdb9b,
+            #13ad67
+          )
+          1; */
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid white;
+        padding: 5px;
+      }
+      th,
+      td {
+        text-align: center;
+      }
+      .td_tab {
+        color: white;
+        padding: 14px 4px;
+        font-size: 14px;
+      }
+      .yellow {
+        background-color: #ffcd6c;
+        font-size: 14px;
+        padding: 14px 0;
+      }
+
+      .destroy__text {
+        margin-top: 22px;
+        font-size: 1.6rem;
+        line-height: 2rem;
+        font-weight: 600;
+        color: white;
+      }
+
+      .prize-structure {
+        font-size: 1.8rem;
+        line-height: 24px;
+        font-family: "Montserrat", sans-serif;
+      }
+      .prize__footer {
+        font-size: 1.3rem;
+        line-height: 20px;
+        font-family: "Montserrat", sans-serif;
+      }
+      .prize-structure1 {
+        display: block;
+        font-size: 1.4rem;
+        line-height: 22px;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .destroy__text-highlight {
+        color: #fcb523;
+      }
+
+      .nh__mood-content-update {
+        display: block;
+        font-size: 16px;
+        line-height: 22px;
+        color: rgb(0, 78, 163);
+      }
+
+      .logo-img__nhsv {
+        width: 250px;
+        margin-top: 18px;
+      }
+
+      .btn__create {
+        margin-left: 18px;
+      }
+      .btn__open {
+        margin-top: 16px;
+      }
+
+      .nh__discount {
+        font-size: 16px;
+        color: #004ea3;
+        line-height: 20px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+
+      .nh__mood-title {
+        font-size: 1.4rem;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+
+      .ladi-section-background {
+        position: relative;
+        top: -6px;
+        padding-top: 34%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+
+      .contant_line {
+        position: relative;
+      }
+      .line-straight {
+        position: absolute;
+        width: 6px;
+        height: 60%;
+        background-color: white;
+        margin-top: 10px;
+      }
+
+      .product-margin {
+        font-size: 34px;
+        font-weight: 700;
+        line-height: 53px;
+      }
+      .product-nh-five {
+        display: block;
+        font-size: 59px;
+        font-weight: 700;
+        line-height: 78px;
+      }
+      .product-nh-five-plus {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 36px;
+        margin-left: 15px;
+      }
+      .product-nh-five-bottom {
+        font-size: 13px;
+        line-height: 20px;
+        font-style: italic;
+      }
+
+      .nh__contract {
+      }
+      .nh__contract-title {
+        text-align: center;
+        font-size: 30px;
+        color: white;
+        line-height: 38px;
+        font-weight: 700;
+      }
+      .nh__contract-desc {
+        font-size: 16px;
+        color: white;
+        line-height: 20px;
+        margin-top: 8px;
+      }
+
+      .header_container {
+        position: absolute;
+        width: 100%;
+        top: 20%;
+      }
+
+      .use-margin {
+        font-size: 26px;
+        font-weight: 800;
+        color: white;
+        line-height: 36px;
+      }
+
+      .ladi-headline {
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        line-height: 1.2;
+        text-shadow: rgba(22, 19, 16, 0.4) 4.47836px 4.47836px 0px;
+      }
+
+      .line-horizontal {
+        display: block;
+        width: 80%;
+        height: 7px;
+        background: #fff;
+        margin-top: 8px;
+      }
+
+      .ladi-headline__des {
+        font-size: 18px;
+        line-height: 40px;
+        color: #fff;
+      }
+
+      .time__heading {
+        width: 404px;
+        margin-top: 30px;
+        border-radius: 20px;
+        border: 2px solid #294172;
+        background-color: white;
+        padding: 4px;
+      }
+      .nh-teamp {
+        background-color: #fff;
+        padding: 66px;
+        height: 100%;
+      }
+      .time__heading-time {
+        display: flex;
+        align-items: center;
+      }
+      #SHAPE9 {
+        width: 22.0037px;
+        height: 22.0037px;
+        top: 4.93775px;
+        left: 5.5882px;
+      }
+      #SHAPE9 svg:last-child {
+        fill: #000;
+      }
+
+      .nh__open-account {
+        background-color: white;
+        border-radius: 30px;
+        padding: 40px 28px;
+        box-shadow: 0px 15px 20px -15px rgba(14, 37, 124, 1);
+        -webkit-box-shadow: 0px 15px 20px -15px rgba(14, 37, 124, 1);
+      }
+
+      .ladi-element {
+        font-size: 16px;
+        margin-left: 4px;
+        width: 100%;
+      }
+
+      .btn__register {
+        margin-top: 50px;
+      }
+      .btn__seemore {
+        text-align: center;
+      }
+      .btn__register-details {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .nh-img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .container__tower-content-right {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 95%;
+      }
+
+      .why-margin {
+        margin: 50px 0;
+        align-items: center;
+      }
+
+      .container__tower-left {
+        /* width: 600px; */
+      }
+
+      .logo-footer-icon-img {
+        width: 30px;
+      }
+
+      .regis__btn {
+        padding: 10px 20px;
+        font-family: "Montserrat", sans-serif;
+        border-radius: 50px;
+        background-color: #fbb800;
+        outline: none;
+        font-size: 21px;
+        color: #003b35;
+        font-weight: 600;
+        border: none;
+        margin-left: 0px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+      }
+      .down__btn {
+        white-space: nowrap;
+        padding: 10px 20px;
+        font-family: "Montserrat", sans-serif;
+
+        border-radius: 50px;
+        background: linear-gradient(135deg, #00aca8, #84dbb5, #d8efc3, #f8f3b2, #ffcf58);
+
+        outline: none;
+        font-size: 21px;
+        font-weight: 700;
+        color: #003b35;
+        border: none;
+        box-shadow: 0px 8px 15px rgba(255, 255, 255, 0.5);
+      }
+
+      /* .ladi-form .down__btn {
+        text-align: center;
+      } */
+
+      .heading__right {
+        top: 10px;
+      }
+      .ladi-image {
+        position: relative;
+        height: 520px;
+      }
+
+      .qr-img {
+        width: 250px;
+      }
+
+      .container {
+        width: 100%;
+        margin-top: 30px;
+      }
+      .container__cart-img {
+        width: 350px;
+      }
+
+      .margin-interest {
+        font-family: SVN, sans-serif;
+        font-size: 26px;
+        line-height: 34px;
+        color: white;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .discount-mobile {
+        display: block;
+      }
+
+      .margin-contructor {
+        font-size: 22px;
+        line-height: 28px;
+        color: white;
+        margin-top: 12px;
+      }
+
+      .margin-interest-nh-five {
+        font-style: italic;
+      }
+      .margin-interest-plus {
+        font-style: italic;
+      }
+      .margin-interest-img {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 100%;
+        height: 100%;
+        top: -34px;
+        left: -3%;
+        background-image: url("https://nhsv.vn/uploadfile/source/Landing%20Page%20to%20Promote%20Margin/2.png");
+        padding-top: 50%;
+      }
+
+      .dowload-3m {
+        font-size: 27px;
+        line-height: 32px;
+        color: #004ea3;
+        font-weight: 700;
+      }
+
+      .time-apply {
+        font-size: 14px;
+        line-height: 22px;
+        display: block;
+        color: white;
+      }
+
+      .nh-img-mar {
+        height: 100px;
+      }
+
+      .nh-img-la {
+        /* height: 500px; */
+      }
+
+      .container__middle {
+        width: 100%;
+        height: 680px;
+        margin-top: 10px;
+        position: relative;
+      }
+      .container__tower {
+        width: 100%;
+        margin-top: 50px;
+        display: flex;
+      }
+
+      .container__tower-right {
+        background-color: white;
+        height: 593px;
+        padding: 20px 40px;
+      }
+
+      .container__tower-right-h3 {
+        text-align: center;
+        font-size: 22px;
+        color: #003b35;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .container__tower-content {
+        color: #003b35;
+        font-weight: 400;
+        text-align: justify;
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 24px;
+      }
+
+      .container__buffter {
+        background-image: url("https://nhsv.vn/uploadfile/source/Marketing%20material/something-landing-page/3%20(1).png");
+        background-position: right;
+        background-repeat: repeat;
+        height: 488px;
+      }
+
+      .app__pro {
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      .app_pro-heading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo-img {
+        width: 50px;
+        height: 49px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        position: relative;
+        top: 3px;
+      }
+      .nh__chat {
+        display: flex;
+      }
+      .logo-img1 {
+        width: 50px;
+        height: 51px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        position: relative;
+        top: 3px;
+      }
+
+      .nh-qr {
+        margin: 50px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Footer */
+      .footer {
+        border-top: 1px solid rgba(250, 250, 250, 0.3);
+        padding-top: 16px;
+        margin: 50px 100px;
+      }
+
+      .footer-nhsv-left {
+        font-size: 16px;
+        color: white;
+        font-weight: 500;
+        margin-top: 14px;
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-nhsv-right-heading {
+        font-size: 14px;
+        color: white;
+        font-weight: 600;
+        margin-top: 14px;
+      }
+      .footer-nhsv-right-content {
+        font-size: 14px;
+        line-height: 22px;
+        color: white;
+        font-weight: 400;
+        margin-top: 14px;
+        margin-top: 6px;
+      }
+
+      .footer-nhsv-right-r {
+        margin-top: 14px;
+      }
+      /* Mobile & Tablet */
+      @media (min-width: 1024) and (max-width: 1052px) {
+        /* .tablinks {
+          font-size: 1.8rem;
+          padding: 14px 80px;
+        } */
+      }
+      /* Tablet */
+      @media (min-width: 740px) and (max-width: 1023px) {
+        .header {
+        }
+        .nh-img-mar {
+          height: 80px;
+        }
+        .nh__mood-title {
+          font-size: 1.3rem;
+        }
+        .container__cart-img {
+          width: 300px;
+        }
+        .nh__chat {
+          display: flex;
+        }
+        .tablinks {
+          font-size: 1.4rem;
+          padding: 14px 72px;
+          margin-right: 22px;
+        }
+        .prize-structure {
+          font-size: 1.6rem;
+          white-space: nowrap;
+        }
+        .prize-structure1 {
+          font-size: 1.3rem;
+          white-space: nowrap;
+        }
+        .three_phone {
+          width: 375px;
+        }
+        /* .nh-img-mar {
+          height: 70px;
+        } */
+      }
+      /* Mobile */
+      @media (max-width: 739px) {
+        .header {
+        }
+        .step_mobile {
+          display: block;
+          margin-bottom: 18px;
+        }
+        .tabcontent {
+          padding: 15px;
+          margin: 18px 16px;
+        }
+        .market-img123 {
+          width: 26px;
+          position: relative;
+          top: 1px;
+        }
+        .nh__temp1 {
+          margin: inherit;
+        }
+        .prize-structure {
+          font-size: 1.3rem;
+        }
+        .prize-structure1 {
+          font-size: 1.1rem;
+          white-space: nowrap;
+        }
+        .result_moblie {
+          margin-top: 14px;
+        }
+        .consider {
+          font-size: 1.2rem;
+          margin: 0 16px;
+        }
+        .consider_mobile {
+          margin: 0 16px 0 28px;
+        }
+        .consider_table {
+          margin: 0 16px;
+        }
+        .td_tab {
+          font-size: 1.2rem;
+        }
+        .yellow {
+          font-size: 1.2rem;
+        }
+        .tablinks {
+          font-size: 1.4rem;
+          padding: 12px 26px;
+          margin-right: 12px;
+        }
+        .destroy__text {
+          margin: 16px;
+          font-size: 1.4rem;
+        }
+        .container__cart-img {
+          width: 250px;
+        }
+        .zero-percent {
+          text-align: center;
+        }
+        .discount-mobile {
+          display: block;
+        }
+
+        .nh__contract {
+          margin: 16px 8px;
+        }
+        .nh__mood-title {
+          display: block;
+          font-size: 1.2rem;
+        }
+        .nh__contract-desc {
+          font-size: 14px;
+        }
+        .dowload-3m {
+          font-size: 18px;
+          line-height: 22px;
+        }
+        .ladi-form .down__btn {
+          font-size: 18px;
+        }
+        .use-margin {
+          display: block;
+          font-size: 20px;
+          text-align: center;
+        }
+        .market-img__la {
+          width: 200px;
+        }
+        .nh__contract-title {
+          font-size: 18px;
+          line-height: 22px;
+        }
+        .nh__open-account {
+          margin: 0 16px;
+        }
+        .margin-interest {
+          font-size: 18px;
+          color: white;
+          line-height: 27px;
+          font-weight: 700;
+        }
+        .margin-contructor {
+          font-size: 16px;
+          margin: 0 8px;
+          line-height: 24px;
+        }
+        .downlink__mob {
+          margin-top: 20px;
+        }
+        .line-horizontal {
+          display: none;
+          width: 80%;
+          height: 4px;
+          background: #fff;
+        }
+        .nh-img-mar {
+          height: 83px;
+        }
+        .margin-interest-img {
+        }
+        .time-apply {
+          font-size: 12px;
+          margin: 4px 40px;
+        }
+        .line-straight {
+          margin-top: 5px;
+          height: 70%;
+          margin-left: 16px;
+        }
+        .product-margin {
+          font-size: 20px;
+          padding: 0 16px;
+          font-weight: 700;
+          line-height: 28px;
+        }
+        .product-nh-five {
+          display: block;
+          padding: 0 16px;
+          font-size: 24px;
+          font-weight: 700;
+          line-height: normal;
+          margin: 8px 0;
+        }
+        .product-nh-five-plus {
+          padding: 0 16px;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 24px;
+        }
+        .nh-teamp {
+          padding: 40px;
+        }
+        .ladi-headline__des {
+          line-height: 22px;
+        }
+        .boder-text-img {
+          width: 242px;
+          height: 99px;
+        }
+        .nh__mood-content-update {
+          display: inline;
+          font-size: 14px;
+        }
+        .nh-temp-container {
+          margin-top: 22px;
+        }
+        .turnon-app {
+          top: 2px;
+        }
+        .logo-img {
+          width: 45px;
+          height: 45px;
+        }
+        .logo-img1 {
+          width: 45px;
+          height: 45px;
+        }
+        .logo-img__nhsv {
+          width: 200px;
+        }
+        .regis__btn {
+          margin-left: 18px;
+        }
+        .turnon-app {
+          font-size: 18px;
+        }
+        .header_container {
+          top: 10%;
+        }
+        .open__heading {
+          margin: 0 20px;
+        }
+        .ladi-headline {
+          font-size: 24px;
+          line-height: 32px;
+        }
+        .ladi-headline__des {
+          font-size: 13px;
+        }
+        .time__heading {
+          margin: 20px;
+          width: 350px;
+        }
+        .ladi-element {
+          font-size: 14px;
+        }
+        .btn__register {
+          margin-top: 20px;
+        }
+        .ladi-image-background {
+          width: 383px;
+          height: 303px;
+          margin-top: 60px;
+        }
+        .sale__mobile {
+          text-align: center;
+        }
+        .btn__create {
+          margin: 18px 0;
+        }
+        .when-open {
+          margin: 15px 0;
+          text-align: center;
+        }
+        .regis__btn {
+          margin-right: 18px;
+          font-size: 18px;
+        }
+        .apppro__reciver {
+          margin: 20px 12px;
+          line-height: 22px;
+          font-size: 16px;
+        }
+        .apppro__turnonapp {
+          margin: 20px 12px;
+          font-size: 16px;
+        }
+        .nh__mood-content {
+          font-size: 15px;
+        }
+        .container__buffter {
+          height: 822px;
+        }
+        .pro__details {
+          text-align: center;
+          margin-left: 0;
+        }
+        .qr-img {
+          width: 220px;
+          margin-right: 18px;
+        }
+        .container__middle {
+          height: 1430px;
+        }
+        .container__tower-right-h3 {
+          font-size: 20px;
+        }
+        .footer__content {
+          padding: 0 16px;
+        }
+        .footer__heading {
+          text-align: center;
+        }
+        .footer__download,
+        .footer-item__link {
+          justify-content: center;
+        }
+        .footer__download-apps {
+          flex: unset;
+        }
+        .footer__dowload-app-link {
+          display: block;
+          padding: 6px 8px;
+        }
+        .nh__turnonmood-res {
+          margin-bottom: 10px;
+          max-width: 320px;
+          margin: 10px auto;
+        }
+        .nh__chat {
+          display: flex;
+        }
+        .container__tower {
+          margin-top: 86px;
+        }
+        .nh__turnonmood-container {
+          margin: 0 12px;
+        }
+        .container__tower {
+          display: flex;
+          flex-direction: column;
+        }
+        .nh-qr {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 50px;
+          margin-top: 3px;
+        }
+        .down__btn {
+          padding: 10px 10px;
+          margin-top: 4px;
+          font-size: 1.6rem;
+        }
+        .nh__discount {
+          font-size: 14px;
+        }
+        .container__tower-content {
+          font-size: 14px;
+        }
+        .nh-img {
+          text-align: center;
+          width: 100%;
+        }
+        .tmep {
+          width: 100%;
+        }
+        .btn__seemore {
+          flex: 0;
+        }
+        .nhpro_content {
+          margin-top: 26px;
+        }
+        .nh-gift {
+          font-size: 18px;
+        }
+        .nh-money {
+          font-size: 22px;
+        }
+        .container__tower-right {
+          height: 650px;
+        }
+        .footer-nh {
+          margin: 0 8px;
+        }
+        .footer-nh:last-child {
+          margin-top: 12px;
+        }
+        .footer {
+          margin: 50px 30px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app">
+      <header class="header">
+        <div
+          class="ladi-section-background"
+          style="
+            background-image: url('https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/final%20(1).png');
+          "
+        ></div>
+      </header>
+
+      <div class="container">
+        <div class="grid wide">
+          <div>
+            <div class="margin-interest" style="text-align: center">
+              Phá đảo
+              <span class="discount-mobile"> chứng trường ảo </span>
+            </div>
+            <div class="destroy__text">
+              “Phá đảo chứng trường ảo” là cuộc thi đầu tư ảo qua ứng dụng giao
+              dịch <span class="destroy__text-highlight">NHSV Pro</span> được
+              phát triển bởi
+              <span class="destroy__text-highlight"
+                >Công ty TNHH Chứng khoán NH Việt Nam</span
+              >. Tham gia cuộc thi, nhà đầu tư sẽ được cấp một tài khoản với
+              <span class="destroy__text-highlight">500 triệu đồng</span> tiền
+              ảo để thực hiện đầu tư như trên thị trường thật.
+              <span style="display: block; margin-top: 10px">
+                Nhà đầu tư có xếp hạng tỉ suất lợi nhuận trên tài khoản ảo cao
+                nhất theo thứ tự từ trên xuống dưới trên Bảng xếp hạng của từng
+                vòng thi ảo sẽ là người thắng cuộc.
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <div
+              class="margin-interest"
+              style="text-align: center; margin-top: 32px"
+            >
+              GIẢI THƯỞNG HẤP DẪN
+            </div>
+            <div class="destroy__text" style="text-align: center">
+              Tổng giá trị giải thưởng lên tới 145.9 triệu đồng
+            </div>
+            <div class="row" style="margin-top: 20px">
+              <div class="col l-12 m-12 c-12" style="color: white">
+                <div class="tabs">
+                  <button class="tablinks" onclick="openTab(event, 'Tab1')">
+                    Vòng 1
+                  </button>
+                  <button class="tablinks" onclick="openTab(event, 'Tab2')">
+                    Vòng 2
+                  </button>
+                  <button class="tablinks" onclick="openTab(event, 'Tab3')">
+                    Vòng 3
+                  </button>
+                </div>
+
+                <div id="Tab1" class="tabcontent">
+                  <div class="row">
+                    <div class="col l-6 m-6 c-12">
+                      <div class="row">
+                        <div class="col l-6 m-6 c-6">
+                          <div class="nh__chat">
+                            <div class="nh__temp">
+                              <div class="nh-img-mar" style="display: flex">
+                                <img
+                                  src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/1.png"
+                                  alt="Market NHSV"
+                                  class="market-img"
+                                />
+                              </div>
+                              <div class="nh__mood-content">
+                                <span class="nh__mood-title"
+                                  >Thi đấu chính thức </span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col l-6 m-6 c-6">
+                          <div class="nh__chat">
+                            <div class="nh__temp1">
+                              <div class="nh-img-mar" style="display: flex">
+                                <img
+                                  src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/3%20(1).png"
+                                  alt="Market NHSV"
+                                  class="market-img"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col l-6 m-6 c-12 result_moblie">
+                      <div class="row">
+                        <div class="col l-6 m-6 c-6">
+                          <div class="nh__chat">
+                            <div class="nh__temp">
+                              <div class="nh-img-mar" style="display: flex">
+                                <img
+                                  src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/3.png"
+                                  alt="Market NHSV"
+                                  class="market-img"
+                                />
+                              </div>
+                              <div class="nh__mood-content">
+                                <span class="nh__mood-title"
+                                  >Công bố kết quả </span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col l-6 m-6 c-6">
+                          <div class="nh__chat">
+                            <div class="nh__temp1">
+                              <div class="nh-img-mar" style="display: flex">
+                                <img
+                                  src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/4%20(1).png"
+                                  alt="Market NHSV"
+                                  class="market-img"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="margin-interest"
+                    style="text-align: center; margin-top: 32px"
+                  >
+                    CƠ CẤU GIẢI THƯỞNG
+                    <div class="row" style="margin-top: 16px">
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/6.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure">GIẢI NHÌ</span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >3,000,000 VNĐ
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/5.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure">GIẢI NHẤT </span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >5,000,000 VNĐ
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/6.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure">GIẢI BA </span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >1,000,000 VNĐ
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" style="margin-top: 16px">
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/8.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure"
+                                >GIẢI KHUYẾN KHÍCH 1
+                              </span>
+                              <span class="prize-structure1"
+                                >Thứ hạng 4 - 10
+                              </span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >500,000 VNĐ
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/8.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure"
+                                >GIẢI KHUYẾN KHÍCH 2</span
+                              >
+                              <span class="prize-structure1"
+                                >Thứ hạng 11 - 30
+                              </span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >300,000 VNĐ
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/8.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure"
+                                >GIẢI KHUYẾN KHÍCH 3
+                              </span>
+                              <span class="prize-structure1"
+                                >Thứ hạng 31 - 50
+                              </span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >100,000
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div style="margin-top: 40px">
+                      <div class="nh__chat" style="justify-content: center">
+                        <div class="nh__chat" style="align-items: center">
+                          <div
+                            class="nh-img-mar"
+                            style="display: flex; justify-content: center"
+                          >
+                            <img
+                              src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/9.png"
+                              alt="Market NHSV"
+                              class="market-img"
+                            />
+                          </div>
+                          <div style="margin-left: 12px">
+                            <span class="prize-structure"
+                              >GIẢI PHÁT LỘC ĐẦU TƯ
+                            </span>
+                            <span class="prize-structure1"
+                              >Thứ hạng 8, 18, 28,...,98
+                            </span>
+                            <span
+                              class="prize-structure"
+                              style="color: #9ddff0; display: block"
+                              >80,000 VNĐ
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="margin-top: 40px">
+                    <div class="prize__footer" style="font-style: italic">
+                      <span>Thời gian trao thưởng:</span>
+                      <span style="margin-left: 18px"
+                        >Trong vòng 05 ngày làm việc kể từ ngày công bố kết quả
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="Tab2" class="tabcontent">
+                  <div class="row">
+                    <div class="col l-6 m-6 c-12">
+                      <div class="row">
+                        <div class="col l-6 m-6 c-6">
+                          <div class="nh__chat">
+                            <div class="nh__temp">
+                              <div class="nh-img-mar" style="display: flex">
+                                <img
+                                  src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/1.png"
+                                  alt="Market NHSV"
+                                  class="market-img"
+                                />
+                              </div>
+                              <div class="nh__mood-content">
+                                <span class="nh__mood-title"
+                                  >Thi đấu chính thức </span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col l-6 m-6 c-6">
+                          <div class="nh__chat">
+                            <div class="nh__temp1">
+                              <div class="nh-img-mar" style="display: flex">
+                                <img
+                                  src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/5%20(1).png"
+                                  alt="Market NHSV"
+                                  class="market-img"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col l-6 m-6 c-12 result_moblie">
+                      <div class="row">
+                        <div class="col l-6 m-6 c-6">
+                          <div class="nh__chat">
+                            <div class="nh__temp">
+                              <div class="nh-img-mar" style="display: flex">
+                                <img
+                                  src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/3.png"
+                                  alt="Market NHSV"
+                                  class="market-img"
+                                />
+                              </div>
+                              <div class="nh__mood-content">
+                                <span class="nh__mood-title"
+                                  >Công bố kết quả </span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col l-6 m-6 c-6">
+                          <div class="nh__chat">
+                            <div class="nh__temp1">
+                              <div class="nh-img-mar" style="display: flex">
+                                <img
+                                  src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/6%20(1).png"
+                                  alt="Market NHSV"
+                                  class="market-img"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="margin-interest"
+                    style="text-align: center; margin-top: 32px"
+                  >
+                    CƠ CẤU GIẢI THƯỞNG
+                    <div class="row" style="margin-top: 16px">
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/6.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure">GIẢI NHÌ</span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >6,000,000 VNĐ
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/5.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure">GIẢI NHẤT </span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >10,000,000 VNĐ
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/6.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure">GIẢI BA </span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >2,000,000 VNĐ
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" style="margin-top: 16px">
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/8.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure"
+                                >GIẢI KHUYẾN KHÍCH 1
+                              </span>
+                              <span class="prize-structure1"
+                                >Thứ hạng 4 - 10
+                              </span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >1,000,000 VNĐ
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/8.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure"
+                                >GIẢI KHUYẾN KHÍCH 2</span
+                              >
+                              <span class="prize-structure1"
+                                >Thứ hạng 11 - 30
+                              </span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >600,000 VNĐ
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/8.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure"
+                                >GIẢI KHUYẾN KHÍCH 3
+                              </span>
+                              <span class="prize-structure1"
+                                >Thứ hạng 31 - 50
+                              </span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >200,000
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div style="margin-top: 40px">
+                      <div class="nh__chat" style="justify-content: center">
+                        <div class="nh__chat" style="align-items: center">
+                          <div
+                            class="nh-img-mar"
+                            style="display: flex; justify-content: center"
+                          >
+                            <img
+                              src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/9.png"
+                              alt="Market NHSV"
+                              class="market-img"
+                            />
+                          </div>
+                          <div style="margin-left: 12px">
+                            <span class="prize-structure"
+                              >GIẢI PHÁT LỘC ĐẦU TƯ
+                            </span>
+                            <span class="prize-structure1"
+                              >Thứ hạng 8, 18, 28,...,98
+                            </span>
+                            <span
+                              class="prize-structure"
+                              style="color: #9ddff0; display: block"
+                              >80,000 VNĐ
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="margin-top: 40px">
+                    <div class="prize__footer" style="font-style: italic">
+                      <span>Thời gian trao thưởng:</span>
+                      <span style="margin-left: 18px"
+                        >Trong vòng 05 ngày làm việc kể từ ngày công bố kết quả
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="Tab3" class="tabcontent">
+                  <div class="row">
+                    <div class="col l-6 m-6 c-12">
+                      <div class="row">
+                        <div class="col l-6 m-6 c-6">
+                          <div class="nh__chat">
+                            <div class="nh__temp">
+                              <div class="nh-img-mar" style="display: flex">
+                                <img
+                                  src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/1.png"
+                                  alt="Market NHSV"
+                                  class="market-img"
+                                />
+                              </div>
+                              <div class="nh__mood-content">
+                                <span class="nh__mood-title"
+                                  >Thi đấu chính thức </span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col l-6 m-6 c-6">
+                          <div class="nh__chat">
+                            <div class="nh__temp1">
+                              <div class="nh-img-mar" style="display: flex">
+                                <img
+                                  src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/7%20(1).png"
+                                  alt="Market NHSV"
+                                  class="market-img"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col l-6 m-6 c-12 result_moblie">
+                      <div class="row">
+                        <div class="col l-6 m-6 c-6">
+                          <div class="nh__chat">
+                            <div class="nh__temp">
+                              <div class="nh-img-mar" style="display: flex">
+                                <img
+                                  src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/3.png"
+                                  alt="Market NHSV"
+                                  class="market-img"
+                                />
+                              </div>
+                              <div class="nh__mood-content">
+                                <span class="nh__mood-title"
+                                  >Công bố kết quả </span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col l-6 m-6 c-6">
+                          <div class="nh__chat">
+                            <div class="nh__temp1">
+                              <div class="nh-img-mar" style="display: flex">
+                                <img
+                                  src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/8%20(1).png"
+                                  alt="Market NHSV"
+                                  class="market-img"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="margin-interest"
+                    style="text-align: center; margin-top: 32px"
+                  >
+                    CƠ CẤU GIẢI THƯỞNG
+                    <div class="row" style="margin-top: 16px">
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/6.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure">GIẢI NHÌ</span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >12,000,000 VNĐ
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/5.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure">GIẢI NHẤT </span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >20,000,000 VNĐ
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/6.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure">GIẢI BA </span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >4,000,000 VNĐ
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" style="margin-top: 16px">
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/8.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure"
+                                >GIẢI KHUYẾN KHÍCH 1
+                              </span>
+                              <span class="prize-structure1"
+                                >Thứ hạng 4 - 10
+                              </span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >2,000,000 VNĐ
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/8.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure"
+                                >GIẢI KHUYẾN KHÍCH 2</span
+                              >
+                              <span class="prize-structure1"
+                                >Thứ hạng 11 - 30
+                              </span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >1,200,000 VNĐ
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col l-4 m-4 c-4">
+                        <div class="nh__chat" style="justify-content: center">
+                          <div>
+                            <div
+                              class="nh-img-mar"
+                              style="display: flex; justify-content: center"
+                            >
+                              <img
+                                src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/8.png"
+                                alt="Market NHSV"
+                                class="market-img"
+                              />
+                            </div>
+                            <div class="">
+                              <span class="prize-structure"
+                                >GIẢI KHUYẾN KHÍCH 3
+                              </span>
+                              <span class="prize-structure1"
+                                >Thứ hạng 31 - 50
+                              </span>
+                              <span
+                                class="prize-structure"
+                                style="color: #9ddff0; display: block"
+                                >400,000
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div style="margin-top: 40px">
+                      <div class="nh__chat" style="justify-content: center">
+                        <div class="nh__chat" style="align-items: center">
+                          <div
+                            class="nh-img-mar"
+                            style="display: flex; justify-content: center"
+                          >
+                            <img
+                              src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/9.png"
+                              alt="Market NHSV"
+                              class="market-img"
+                            />
+                          </div>
+                          <div style="margin-left: 12px">
+                            <span class="prize-structure"
+                              >GIẢI PHÁT LỘC ĐẦU TƯ
+                            </span>
+                            <span class="prize-structure1"
+                              >Thứ hạng 8, 18, 28,...,98
+                            </span>
+                            <span
+                              class="prize-structure"
+                              style="color: #9ddff0; display: block"
+                              >80,000 VNĐ
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="margin-top: 40px">
+                    <div class="prize__footer" style="font-style: italic">
+                      <span>Thời gian trao thưởng:</span>
+                      <span style="margin-left: 18px"
+                        >Trong vòng 05 ngày làm việc kể từ ngày công bố kết quả
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div
+              class="margin-interest"
+              style="margin: 22px 0; display: flex; justify-content: center"
+            >
+              <div>
+                <img
+                  src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/10.png"
+                  alt="Market NHSV"
+                  class="market-img123"
+                />
+              </div>
+              CÁCH THỨC THAM GIA
+            </div>
+            <div>
+              <div class="row">
+                <div class="col l-4 m-4 c-12">
+                  <div style="display: flex; justify-content: center">
+                    <img
+                      src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/11.png"
+                      alt="Market NHSV"
+                      class="three_phone"
+                    />
+                  </div>
+                  <div
+                    class="step_install"
+                    style="text-align: center; color: white"
+                  >
+                    <h3>Bước 1</h3>
+                    <span
+                      >Tải ứng dụng
+                      <span style="color: #ffcd6c">NHSV Pro</span> trên điện
+                      thoại<span class="step_mobile">
+                        bằng cách quét mã QR bên dưới</span
+                      >
+                    </span>
+                  </div>
+                </div>
+                <div class="col l-4 m-4 c-12">
+                  <div style="display: flex; justify-content: center">
+                    <img
+                      src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/12.png"
+                      alt="Market NHSV"
+                      class="three_phone"
+                    />
+                  </div>
+                  <div
+                    class="step_install"
+                    style="text-align: center; color: white"
+                  >
+                    <h3>Bước 2</h3>
+                    <span
+                      >Mở tài khoản chứng khoán qua ứng
+                      <span class="step_mobile"
+                        >dụng <span style="color: #ffcd6c">NHSV Pro</span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <div class="col l-4 m-4 c-12">
+                  <div style="display: flex; justify-content: center">
+                    <img
+                      src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/13.png"
+                      alt="Market NHSV"
+                      class="three_phone"
+                    />
+                  </div>
+                  <div
+                    class="step_install"
+                    style="text-align: center; color: white"
+                  >
+                    <h3>Bước 3</h3>
+                    <span
+                      >Chọn
+                      <span style="color: #fdb525"
+                        >Tài khoản ảo</span>
+                        <span class="step_mobile"
+                          >và nhấn vào
+                          <span style="color: #ffcd6c">banner cuộc thi</span> để
+                          tham gia</span
+                        ></span
+                      >
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 26px">
+            <div class="nh-qr">
+              <div class="nhqr-left">
+                <a
+                  href="https://nhsvpro.onelink.me/PZWy/marginpage"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="https://nhsv.vn/uploadfile/source/Marketing%20material/something-landing-page/download.png"
+                    alt="QR NHSV"
+                    class="qr-img"
+                  />
+                </a>
+              </div>
+              <div class="btn__create">
+                <a
+                  href="https://nhsvpro.onelink.me/PZWy/marginpage"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><button class="down__btn">
+                    TẢI APP &
+                    <span>MỞ TÀI KHOẢN NGAY!</span>
+                  </button></a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div
+              class="margin-interest"
+              style="margin: 22px 0 8px; display: flex; justify-content: center"
+            >
+              <div>
+                <img
+                  src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/15.png"
+                  alt="Market NHSV"
+                  class="market-img123"
+                />
+              </div>
+              CÁCH THỨC XÉT GIẢI
+            </div>
+            <div>
+              <p class="consider consider_mobile" style="display: list-item;">Sau khi kết thúc từng vòng thi, Giải thưởng được xét theo lần lượt từ giải nhất đến giải Khuyến khích 3 dựa trên tỷ suất lợi nhuận trên tài khoản ảo của nhà đầu tư trên Bảng xếp hạng; đồng thời thỏa mãn điều kiện xét giải của cuộc thi như sau:
+              </p>
+              <p class="consider" style="display: flex; margin-top: 12px;">
+                <span>1.</span>
+                 <span style="margin-left: 5px;">Nhà đầu tư thực hiện ít nhất 1 giao dịch mua hoặc bán chứng khoán trên tài khoản ảo trong thời gian diễn ra mỗi vòng thi. </span>
+              </p>
+              <p class="consider" style="display: flex; margin-top: 6;">
+                <span>2.</span>
+                 <span style="margin-left: 4px;"> Nhà đầu tư có giá trị giao dịch trên tài khoản thật bằng hoặc lớn hơn mức giá trị tối thiểu được quy định tại mỗi vòng và đối với mỗi giải như sau: </span>
+              </p>
+            </div>
+            <div class="row consider_table" style="margin-top: 12px; margin-bottom: 12px">
+              <table>
+                <tr>
+                  <th class="yellow" rowspan="2">Giải</th>
+                  <th colspan="3" class="yellow">
+                    Giá trị giao dịch tối thiểu trên tài khoản thật (VNĐ)
+                  </th>
+                </tr>
+                <tr>
+                  <th class="yellow">Vòng 1</th>
+                  <th class="yellow">Vòng 2</th>
+                  <th class="yellow">Vòng 3</th>
+                </tr>
+                <tr>
+                  <td class="td_tab">Giải nhất, giải nhì, giải ba </td>
+                  <td class="td_tab">1,000,000</td>
+                  <td class="td_tab">2,000,000</td>
+                  <td class="td_tab">4,000,000</td>
+                </tr>
+                <tr>
+                  <td class="td_tab">Giải khuyến khích 1, 2, 3 </td>
+                  <td class="td_tab">100,000</td>
+                  <td class="td_tab">200,000</td>
+                  <td class="td_tab">400,000</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <p class="consider consider_mobile" style="display: list-item;">Công thức tính tỉ suất lợi nhuận:
+              </p>
+              <p class="consider consider_mobile" style="color: #ffcd6c; margin-left: 50px;">(Giá trị tổng tài sản cuối kỳ - Giá trị tổng tài sản đầu kỳ)/ Giá trị tổng tài sản đầu kỳ * 100%</p>
+              <p class="consider" style="margin-top: 4px;">Trong đó</p>
+              <div class="consider" style="display: flex; margin-top: 4px;">
+                <span>+ </span>
+                  <div >
+                    <span style="margin-left: 5px;">Giá trị tổng tài sản đầu kỳ: 500.000.000 VNĐ </span>
+                    <span style="margin-left: 5px;"> (đây là số vốn ảo nhà đầu tư nhận được khi bắt đầu tham gia mỗi vòng thi)
+                    </span>
+                  </div>
+              </div>
+              <p class="consider" style="display: flex; margin-top: 6;">
+                <span>+ </span>
+                 <span style="margin-left: 4px;">Giá trị tổng tài sản thực cuối kỳ: tổng tài sản thực chốt vào cuối ngày cuối cùng của mỗi vòng thi.  </span>
+              </p>
+            </div>
+            <div
+              class="margin-interest"
+              style="margin: 22px 0 8px; display: flex; justify-content: center"
+            >
+              <div>
+                <img
+                  src="https://nhsv.vn/uploadfile/source/Landing%20page%20for%20virtual%20trading/16.png"
+                  alt="Market NHSV"
+                  class="market-img123"
+                />
+              </div>
+              TRAO GIẢI
+            </div>
+
+            <div>
+              <p class="consider consider_mobile" style="display: list-item;">Giải thưởng từng vòng thi sẽ được trao cho những khách hàng thỏa mãn điều kiện xét giải của cuộc thi và có tỷ suất lợi cao nhất theo thứ tự từ trên xuống theo Bảng xếp hạng từng vòng thi được công bố trên ứng dụng NHSV Pro. 
+              </p>
+              <p class="consider consider_mobile" style="display: list-item;">Trong trường hợp có nhiều khách hàng có cùng tỷ suất lợi nhuận (chính xác tới chữ số thứ hai sau dấu thập phân), đồng thời thỏa mãn điều kiện xét giải, cách xác định khách hàng có xếp hạng cao hơn sẽ được dựa trên các tiêu chí với thứ tự ưu tiên lần lượt như sau: 
+
+              </p>
+              <p class="consider" style="display: flex; margin-top: 12px;">
+                <span>1.</span>
+                 <span style="margin-left: 5px;">Khách hàng có giá trị giao dịch trên tài khoản thật lớn hơn</span>
+              </p>
+              <p class="consider" style="display: flex; margin-top: 6;">
+                <span>2.</span>
+                 <span style="margin-left: 4px;"> Khách hàng có giá trị giao dịch trên tài khoản ảo lớn hơn </span>
+              </p>
+              <p class="consider" style="display: flex; margin-top: 6;">
+                <span>3.</span>
+                 <span style="margin-left: 4px;"> Khách hàng đăng ký tham gia sớm hơn
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div class="grid wide" style="margin-top: 20px;">
+            <div class="nh__open-account">
+              <div class="row">
+                <div class="col l-6 m-6 c-12">
+                  <div class="row">
+                    <div class="col l-12 m-12 c-12 dowload-3m">
+                      Bạn đã sẵn sàng <span style="color: #fcb523">thi đấu</span> 
+                      <span style="display: block"
+                        >và tiến lên vị trí <span style="color: #fcb523">dẫn đầu?</span>
+                        <!-- <span style="color: #fcb523">3 phút</span> -->
+                        </span>
+                      
+                    </div>
+                    <div class="col l-12 m-12 c-12">
+                      <div class="btn__open">
+                        <a
+                          href="https://nhsvpro.onelink.me/PZWy/marginpage"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          ><button class="down__btn">
+                            TẢI APP &
+                            <span style="display: block">THAM GIA NGAY!</span>
+                          </button></a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col l-6 m-6 c-12 downlink__mob">
+                  <div class="row">
+                    <div class="col l-12 m-12 c-12">
+                      <a
+                        href="https://nhsvpro.onelink.me/PZWy/marginpage"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          src="https://nhsv.vn/uploadfile/source/Marketing%20material/something-landing-page/download.png"
+                          alt="QR NHSV"
+                          class="qr-img"
+                        />
+                      </a>
+                    </div>
+                    <div class="col l-12 m-12 c-12 nh__discount">
+                      Thử thách kiến thức và bản lĩnh đầu tư với “Đấu trường” Chứng khoán ảo tại Chứng khoán NHSV ngay hôm nay! Cơ hội chiến thắng đang chờ đợi bạn!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid wide" style="margin-top: 40px;">
+            <div class="row nh-temp-container">
+              <div class="l-6 c-12 m-12">
+                <img
+                  src="https://nhsv.vn/uploadfile/source/Marketing%20material/something-landing-page/tower.jpg"
+                  alt="NHSV"
+                  class="nh-img"
+                />
+              </div>
+              <div class="l-6 c-12 m-12">
+                <div class="nh-teamp">
+                  <h3 class="container__tower-right-h3">
+                    Chứng khoán NH Việt Nam
+                    <span style="color: #fbb800; display: block; margin-top: 14px"
+                      >Kiến tạo văn hóa đầu tư</span
+                    >
+                  </h3>
+                  <div class="container__tower-content-right">
+                    <p class="container__tower-content">
+                      <span style="color: #003b35; font-weight: 700"
+                        >Công ty TNHH Chứng khoán NH Việt Nam</span
+                      >
+                      (NHSV) được chính thức thành lập từ năm 2018, là công ty con
+                      với 100% vốn thuộc
+                      <span style="color: #003b35; font-weight: 700"
+                        >NH Investment & Securities</span
+                      >
+                      - một trong những công ty chứng khoán lớn nhất tại Hàn Quốc
+                      với mạng lưới hơn 100 chi nhánh trên toàn cầu.
+  
+                      <span style="display: block; margin-top: 12px"
+                        >Từ kinh nghiệm và uy tín hơn 50 năm trong lĩnh vực tài
+                        chính tại Hàn Quốc. NHSV đã và đang cung cấp các dịch vụ
+                        chuyên nghiệp và đa dạng bao gồm quản lý tài sản, ngân
+                        hàng đầu tư, môi giới chứng khoán...</span
+                      >
+  
+                      <span style="display: block; margin-top: 12px"></span>Tại
+                      thị trường Việt Nam; NHSV mục tiêu trở thành đối tác tin
+                      cậy, tiếp tục mang đến các giải pháp tài chính toàn diện với
+                      giá trị vượt trội cho các nhà đầu tư trong và ngoài nước.
+                    </p>
+  
+                    <div class="btn__seemore">
+                      <button class="regis__btn">
+                        <a
+                          href="https://nhsv.vn/"
+                          target="_blank"
+                          style="color: #003b35; text-decoration: none"
+                          >Xem thêm</a
+                        >
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="grid wide">
+          <div class="row">
+            <div class="col l-6 m-6 c-12 footer-nh">
+              <div>
+                <img
+                  src="https://nhsv.vn/uploadfile/source/Marketing%20material/something-landing-page/12-1.png"
+                  alt="Logo NHSV"
+                  class="logo-full-img"
+                  style="width: 250px"
+                />
+              </div>
+              <div class="footer-nhsv-left">
+                <img
+                  src="https://nhsv.vn/uploadfile/source/Marketing%20material/something-landing-page/13.png"
+                  alt="Logo NHSV"
+                  class="logo-footer-icon-img"
+                />
+                <span style="margin-left: 8px; font-weight: 700"
+                  >1900 1055</span
+                >
+              </div>
+              <div class="footer-nhsv-left">
+                <img
+                  src="https://nhsv.vn/uploadfile/source/Marketing%20material/something-landing-page/14.png"
+                  alt="Logo NHSV"
+                  class="logo-footer-icon-img"
+                />
+                <span style="margin-left: 8px; font-weight: 700"
+                  >promotion@nhsv.vn</span
+                >
+              </div>
+              <div class="footer-nhsv-left">
+                <img
+                  src="https://nhsv.vn/uploadfile/source/Marketing%20material/something-landing-page/15.png"
+                  alt="Logo NHSV"
+                  class="logo-footer-icon-img"
+                />
+                <span style="margin-left: 8px; font-weight: 700">nhsv.vn</span>
+              </div>
+            </div>
+            <div class="col l-6 m-6 c-12 footer-nh">
+              <div class="">
+                <div class="footer-nhsv-right-heading">Trụ sở chính:</div>
+                <div class="footer-nhsv-right-content">
+                  Tầng 9, tòa tháp Đông, Lotte Center Hà Nội, số 54 Liễu Giai,
+                  phường Cống Vị, quận Ba Đình, Hà Nội
+                </div>
+              </div>
+              <div class="footer-nhsv-right-r">
+                <div class="footer-nhsv-right-heading">Chi nhánh Hà Nội:</div>
+                <div class="footer-nhsv-right-content">
+                  Tầng trệt tòa Somerset Grand Hanoi & Phòng 505, Tầng 5, Tòa
+                  Tháp Hà Nội, Số 49 Hai Bà Trưng, Phường Trần Hưng Đạo, Quận
+                  Hoàn Kiếm, Hà Nội
+                </div>
+              </div>
+              <div class="footer-nhsv-right-r">
+                <div class="footer-nhsv-right-heading">
+                  Chi nhánh Hồ Chí Minh:
+                </div>
+                <div class="footer-nhsv-right-content">
+                  Tầng 3, Tòa nhà President Place, số 93 Nguyễn Du, Phường Bến
+                  Nghé, Quận 1, TP. Hồ Chí Minh
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+
+        // Hide all elements with class="tabcontent"
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        // Remove the background color of all tablinks/buttons
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].style.background = "";
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.style.background =
+          "linear-gradient(90deg, #0cc0df, #ffde59)";
+      }
+
+      // Set default tab open
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".tablinks").click();
+      });
+    </script>
+  </body>
+</html>
