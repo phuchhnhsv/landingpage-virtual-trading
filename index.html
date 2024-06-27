@@ -639,6 +639,8 @@
       .consider {
         font-size: 1.4rem;
         color: white;
+        text-align: justify;
+        text-justify: inter-word;
       }
       .nh__temp1 {
         margin: auto;
@@ -719,11 +721,13 @@
       }
 
       .destroy__text {
-        margin-top: 22px;
+        margin-top: 38px;
         font-size: 1.6rem;
         line-height: 2rem;
         font-weight: 600;
         color: white;
+        text-align: justify;
+        text-justify: inter-word;
       }
 
       .prize-structure {
@@ -772,12 +776,18 @@
         line-height: 20px;
         font-weight: 600;
         margin-top: 10px;
+        text-align: justify;
+        text-justify: inter-word;
       }
 
       .nh__mood-title {
         font-size: 1.4rem;
         white-space: nowrap;
         font-weight: 600;
+      }
+
+      .nh-temp-container {
+        margin: 0;
       }
 
       .ladi-section-background {
@@ -837,6 +847,10 @@
         color: white;
         line-height: 20px;
         margin-top: 8px;
+      }
+
+      .margin-interest__join {
+        margin: 68px 0 40px;
       }
 
       .header_container {
@@ -903,7 +917,6 @@
 
       .nh__open-account {
         background-color: white;
-        border-radius: 30px;
         padding: 40px 28px;
         box-shadow: 0px 15px 20px -15px rgba(14, 37, 124, 1);
         -webkit-box-shadow: 0px 15px 20px -15px rgba(14, 37, 124, 1);
@@ -958,7 +971,7 @@
         background-color: #fbb800;
         outline: none;
         font-size: 21px;
-        color: #003b35;
+        color: #004ea3;
         font-weight: 600;
         border: none;
         margin-left: 0px;
@@ -1013,7 +1026,7 @@
 
       .margin-interest {
         font-family: SVN, sans-serif;
-        font-size: 26px;
+        font-size: 32px;
         line-height: 34px;
         color: white;
         font-weight: 700;
@@ -1050,7 +1063,7 @@
       }
 
       .dowload-3m {
-        font-size: 27px;
+        font-size: 24px;
         line-height: 32px;
         color: #004ea3;
         font-weight: 700;
@@ -1092,13 +1105,13 @@
       .container__tower-right-h3 {
         text-align: center;
         font-size: 22px;
-        color: #003b35;
+        color: #004ea3;
         font-weight: 700;
         margin: 0;
       }
 
       .container__tower-content {
-        color: #003b35;
+        color: #004ea3;
         font-weight: 400;
         text-align: justify;
         font-size: 16px;
@@ -1136,6 +1149,7 @@
       .nh__chat {
         display: flex;
       }
+
       .logo-img1 {
         width: 50px;
         height: 51px;
@@ -1209,6 +1223,9 @@
         .container__cart-img {
           width: 300px;
         }
+        /* .nh__chat {
+          display: flex;
+        } */
         .nh__chat {
           display: flex;
         }
@@ -1240,6 +1257,10 @@
           display: block;
           margin-bottom: 18px;
         }
+        .prize__footer {
+          font-size: 1.2rem;
+          line-height: 18px;
+        }
         .tabcontent {
           padding: 15px;
           margin: 18px 16px;
@@ -1256,7 +1277,9 @@
           margin: inherit;
         }
         .prize-structure {
+          display: block;
           font-size: 1.3rem;
+          line-height: 1.8rem;
         }
         .prize-structure1 {
           font-size: 1.1rem;
@@ -1277,6 +1300,9 @@
         }
         .td_tab {
           font-size: 1.2rem;
+        }
+        .margin-interest__join {
+          margin: 30px 0 22px;
         }
         .yellow {
           font-size: 1.2rem;
@@ -1402,6 +1428,9 @@
         }
         .nh-temp-container {
           margin-top: 22px;
+        }
+        .vnd {
+          display: block;
         }
         .turnon-app {
           top: 2px;
@@ -1596,7 +1625,10 @@
       <div class="container">
         <div class="grid wide">
           <div>
-            <div class="margin-interest" style="text-align: center">
+            <div
+              class="margin-interest margin-interest__join"
+              style="text-align: center"
+            >
               Phá đảo
               <span class="discount-mobile"> chứng trường ảo </span>
             </div>
@@ -1619,8 +1651,8 @@
 
           <div>
             <div
-              class="margin-interest"
-              style="text-align: center; margin-top: 32px"
+              class="margin-interest margin-interest__join"
+              style="text-align: center"
             >
               GIẢI THƯỞNG HẤP DẪN
             </div>
@@ -1715,11 +1747,11 @@
                     </div>
                   </div>
                   <div
-                    class="margin-interest"
-                    style="text-align: center; margin-top: 32px"
+                    class="margin-interest margin-interest__join"
+                    style="text-align: center"
                   >
                     CƠ CẤU GIẢI THƯỞNG
-                    <div class="row" style="margin-top: 16px">
+                    <div class="row" style="margin-top: 30px">
                       <div class="col l-4 m-4 c-4">
                         <div class="nh__chat" style="justify-content: center">
                           <div>
@@ -1738,7 +1770,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >3,000,000 VNĐ
+                                >3,000,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -1762,7 +1794,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >5,000,000 VNĐ
+                                >5,000,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -1786,7 +1818,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >1,000,000 VNĐ
+                                >1,000,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -1817,7 +1849,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >500,000 VNĐ
+                                >500,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -1846,7 +1878,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >300,000 VNĐ
+                                >300,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -1875,7 +1907,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >100,000
+                                >100,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -1998,11 +2030,11 @@
                     </div>
                   </div>
                   <div
-                    class="margin-interest"
-                    style="text-align: center; margin-top: 32px"
+                    class="margin-interest margin-interest__join"
+                    style="text-align: center"
                   >
                     CƠ CẤU GIẢI THƯỞNG
-                    <div class="row" style="margin-top: 16px">
+                    <div class="row" style="margin-top: 30px">
                       <div class="col l-4 m-4 c-4">
                         <div class="nh__chat" style="justify-content: center">
                           <div>
@@ -2021,7 +2053,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >6,000,000 VNĐ
+                                >6,000,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -2045,7 +2077,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >10,000,000 VNĐ
+                                >10,000,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -2069,7 +2101,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >2,000,000 VNĐ
+                                >2,000,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -2100,7 +2132,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >1,000,000 VNĐ
+                                >1,000,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -2129,7 +2161,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >600,000 VNĐ
+                                >600,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -2158,7 +2190,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >200,000
+                                >200,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -2281,11 +2313,11 @@
                     </div>
                   </div>
                   <div
-                    class="margin-interest"
-                    style="text-align: center; margin-top: 32px"
+                    class="margin-interest margin-interest__join"
+                    style="text-align: center"
                   >
                     CƠ CẤU GIẢI THƯỞNG
-                    <div class="row" style="margin-top: 16px">
+                    <div class="row" style="margin-top: 30px">
                       <div class="col l-4 m-4 c-4">
                         <div class="nh__chat" style="justify-content: center">
                           <div>
@@ -2304,7 +2336,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >12,000,000 VNĐ
+                                >12,000,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -2328,7 +2360,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >20,000,000 VNĐ
+                                >20,000,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -2352,7 +2384,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >4,000,000 VNĐ
+                                >4,000,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -2383,7 +2415,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >2,000,000 VNĐ
+                                >2,000,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -2412,7 +2444,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >1,200,000 VNĐ
+                                >1,200,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -2441,7 +2473,7 @@
                               <span
                                 class="prize-structure"
                                 style="color: #9ddff0; display: block"
-                                >400,000
+                                >400,000 <span class="vnd">VNĐ</span>
                               </span>
                             </div>
                           </div>
@@ -2495,8 +2527,8 @@
 
           <div>
             <div
-              class="margin-interest"
-              style="margin: 22px 0; display: flex; justify-content: center"
+              class="margin-interest margin-interest__join"
+              style="display: flex; justify-content: center"
             >
               <div>
                 <img
@@ -2611,8 +2643,8 @@
 
           <div>
             <div
-              class="margin-interest"
-              style="margin: 22px 0 8px; display: flex; justify-content: center"
+              class="margin-interest margin-interest__join"
+              style="display: flex; justify-content: center"
             >
               <div>
                 <img
@@ -2709,8 +2741,8 @@
               </p>
             </div>
             <div
-              class="margin-interest"
-              style="margin: 22px 0 8px; display: flex; justify-content: center"
+              class="margin-interest margin-interest__join"
+              style="display: flex; justify-content: center; margin-top: 50px"
             >
               <div>
                 <img
@@ -2833,12 +2865,12 @@
                   </h3>
                   <div class="container__tower-content-right">
                     <p class="container__tower-content">
-                      <span style="color: #003b35; font-weight: 700"
+                      <span style="color: #004ea3; font-weight: 700"
                         >Công ty TNHH Chứng khoán NH Việt Nam</span
                       >
                       (NHSV) được chính thức thành lập từ năm 2018, là công ty
                       con với 100% vốn thuộc
-                      <span style="color: #003b35; font-weight: 700"
+                      <span style="color: #004ea3; font-weight: 700"
                         >NH Investment & Securities</span
                       >
                       - một trong những công ty chứng khoán lớn nhất tại Hàn
@@ -2863,7 +2895,7 @@
                         <a
                           href="https://nhsv.vn/"
                           target="_blank"
-                          style="color: #003b35; text-decoration: none"
+                          style="color: #004ea3; text-decoration: none"
                           >Xem thêm</a
                         >
                       </button>
